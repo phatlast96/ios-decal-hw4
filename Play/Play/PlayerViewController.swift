@@ -140,14 +140,12 @@ class PlayerViewController: UIViewController {
         if self.player.currentTime() == CMTimeMakeWithSeconds(0, 1) {
             player.replaceCurrentItem(with: AVPlayerItem(url: url))
         }
-        
+        player.seek(to: time)
         if paused {
             player.play()
-            player.seek(to: time)
             sender.isSelected = true
         } else {
             player.pause()
-            player.seek(to: time)
             sender.isSelected = false
         }
         paused = !paused
